@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ComponentType } from '../types/component';
+import { Component, ComponentType } from '../types/component';
 import { useComponentStore } from '../store/componentStore';
 import { ComponentRenderer } from './ComponentRenderer';
 
@@ -33,6 +33,7 @@ export const Canvas: React.FC<CanvasProps> = ({ viewMode }) => {
     const y = e.clientY - rect.top;
   
     const newComponent = {
+      id: Math.random().toString(36).substr(2, 9), // Ensure each component has a unique ID
       type: componentType as ComponentType,
       props: {
         style: {
@@ -51,7 +52,6 @@ export const Canvas: React.FC<CanvasProps> = ({ viewMode }) => {
     addComponent(newComponent);
     selectComponent(newComponent.id);
   };
-  
 
   // Allow drag over the canvas
   const handleDragOver = (e: React.DragEvent) => {
@@ -81,7 +81,7 @@ export const Canvas: React.FC<CanvasProps> = ({ viewMode }) => {
       props: {
         ...components.find(c => c.id === draggingComponent)?.props,
         style: {
-          ...components.find(c => c.id === draggingComponent)?.props.style,
+          ...((components.find(c => c.id === draggingComponent)?.props.style) || {}),
           left: `${x}px`,
           top: `${y}px`,
         },
@@ -111,16 +111,16 @@ export const Canvas: React.FC<CanvasProps> = ({ viewMode }) => {
         </div>
       )}
 
-      {components.map((component) => (
+      {components.map((component: Component) => (
         <div 
           key={component.id}
           onMouseDown={(e) => handleMouseDown(e, component.id)}
           className={`absolute cursor-pointer ${selectedComponentId === component.id ? 'outline outline-2 outline-blue-500' : ''}`}
           style={{
-            left: component.props.style.left,
-            top: component.props.style.top,
-            width: component.props.style.width,
-            height: component.props.style.height,
+            left: component.props.style?.left || '0px',
+            top: component.props.style?.top || '0px',
+            width: component.props.style?.width || 'auto',
+            height: component.props.style?.height || 'auto',
             zIndex: selectedComponentId === component.id ? 10 : 1,
           }}
         >
