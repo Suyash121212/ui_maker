@@ -65,8 +65,10 @@ export const ComponentLibrary: React.FC = () => {
         { type: 'button', icon: <Button size={16} />, label: 'Button' },
         { type: 'text', icon: <Type size={16} />, label: 'Text' },
         { type: 'input', icon: <FormInput size={16} />, label: 'Input' },
+        { type: 'div', icon: <Layout size={16} />, label: 'Container' }, // Added div
       ]
-    },
+    }
+,    
     {
       name: 'Layout',
       components: [

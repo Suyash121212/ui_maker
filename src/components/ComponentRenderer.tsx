@@ -7,45 +7,54 @@ interface ComponentRendererProps {
 
 export const ComponentRenderer: React.FC<ComponentRendererProps> = ({ component }) => {
   const { type, props } = component;
-  
+
   switch (type) {
     case 'button':
       return (
-        <button 
+        <button
           style={props.style}
           className={`px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 ${props.className}`}
         >
-          {props.children || 'Button'}
+          {typeof props.children === 'string' ? props.children : 'Button'}
         </button>
       );
-    
+
     case 'text':
       return (
-        <p 
-          style={props.style}
-          className={`${props.className}`}
-        >
-          {props.children || 'Text Component'}
+        <p style={props.style} className={props.className}>
+          {typeof props.children === 'string' ? props.children : 'Text Component'}
         </p>
       );
-    
+
     case 'input':
       return (
-        <input 
+        <input
           type="text"
           placeholder={props.placeholder || 'Input field'}
           style={props.style}
           className={`border border-gray-300 rounded px-3 py-2 w-full ${props.className}`}
         />
       );
-    
+
+    case 'div':
+      return (
+        <div
+          style={props.style}
+          className={`p-4 border border-gray-300 rounded-lg shadow-md bg-gray-100 ${props.className}`}
+        >
+          {typeof props.children === 'string' ? props.children : null}
+        </div>
+      );
+
     case 'card':
       return (
-        <div 
+        <div
           style={props.style}
           className={`bg-white border border-gray-200 rounded-lg shadow p-4 ${props.className}`}
         >
-          {props.children || (
+          {typeof props.children === 'string' ? (
+            props.children
+          ) : (
             <>
               <h3 className="text-lg font-medium mb-2">Card Title</h3>
               <p className="text-gray-600">Card content goes here. This is a sample card component.</p>
@@ -53,20 +62,20 @@ export const ComponentRenderer: React.FC<ComponentRendererProps> = ({ component 
           )}
         </div>
       );
-    
+
     case 'image':
       return (
-        <img 
-          src={props.src || 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'}
+        <img
+          src={props.src || 'https://via.placeholder.com/150'}
           alt={props.alt || 'Image'}
           style={props.style}
           className={`object-cover ${props.className}`}
         />
       );
-    
+
     case 'navbar':
       return (
-        <nav 
+        <nav
           style={props.style}
           className={`bg-white shadow px-4 py-3 flex items-center justify-between ${props.className}`}
         >
@@ -79,13 +88,10 @@ export const ComponentRenderer: React.FC<ComponentRendererProps> = ({ component 
           </div>
         </nav>
       );
-    
+
     case 'form':
       return (
-        <form 
-          style={props.style}
-          className={`space-y-4 ${props.className}`}
-        >
+        <form style={props.style} className={`space-y-4 ${props.className}`}>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <input type="email" className="border border-gray-300 rounded px-3 py-2 w-full" />
@@ -99,7 +105,7 @@ export const ComponentRenderer: React.FC<ComponentRendererProps> = ({ component 
           </button>
         </form>
       );
-    
+
     default:
       return <div>Unknown component type: {type}</div>;
   }

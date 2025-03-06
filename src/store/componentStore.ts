@@ -15,12 +15,17 @@ export const useComponentStore = create<ComponentStore>((set) => ({
   components: [],
   selectedComponentId: null,
   
+  // addComponent: (component) => set((state) => {
+  //   const newComponent = {
+  //     ...component,
+  //     id: uuidv4(),
+  //   };
   addComponent: (component) => set((state) => {
     const newComponent = {
       ...component,
-      id: uuidv4(),
+      id: uuidv4(), // Generate a unique ID
     };
-
+  
     return {
       components: [...state.components, newComponent],
       selectedComponentId: newComponent.id, // Select the new component after adding
