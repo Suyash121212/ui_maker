@@ -96,7 +96,7 @@ export const Canvas: React.FC<CanvasProps> = ({ viewMode }) => {
 
   return (
     <div
-      className={`bg-white border border-gray-300 shadow-sm h-[calc(100vh-12rem)] ${getCanvasWidth()} relative overflow-hidden`}
+      className={`bg-white border border-gray-300 shadow-sm h-[calc(100vh-12rem)] ${getCanvasWidth()} relative overflow-y-auto overflow-x-hidden`}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onMouseMove={handleMouseMove}
