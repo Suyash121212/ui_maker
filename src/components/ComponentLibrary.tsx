@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Donut as Button, Type, FormInput, Image, Layout, Square, Navigation, Upload } from 'lucide-react';
+import { Donut as Button, Type, FormInput, Image, Layout, Square, Navigation, Upload, File } from 'lucide-react';
+import { templates } from '../data/template';
+import { useComponentStore } from '../store/componentStore';
 
 export const ComponentLibrary: React.FC = () => {
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+  const { addComponent } = useComponentStore();
 
   // Load images from localStorage on mount
   useEffect(() => {
@@ -34,6 +37,26 @@ export const ComponentLibrary: React.FC = () => {
       e.dataTransfer.setData('imageUrl', imageUrl);
     }
   };
+
+  // const handleTemplateSelect = (templateId: string) => {
+  //   const selectedTemplate = templates.find((t) => t.id === templateId);
+  //   if (selectedTemplate) {
+  //     addComponent(selectedTemplate.components);
+  //   }
+  // };
+  const handleTemplateSelect = (templateId: string) => {
+    const selectedTemplate = templates.find((t) => t.id === templateId);
+    
+    if (selectedTemplate) {
+      selectedTemplate.components.forEach((component) => {
+        addComponent({
+          type: component.type,
+          props: component.props,
+        });
+      });
+    }
+  };
+  
 
   const componentCategories = [
     {
@@ -121,6 +144,23 @@ export const ComponentLibrary: React.FC = () => {
             >
               <img src={image} alt={`Uploaded ${index}`} className="w-16 h-16 object-cover rounded" />
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Templates Section */}
+      <div>
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Templates</h3>
+        <div className="grid grid-cols-2 gap-2">
+          {templates.map((template) => (
+            <button
+              key={template.id}
+              onClick={() => handleTemplateSelect(template.id)}
+              className="flex flex-col items-center justify-center p-3 bg-gray-50 border border-gray-200 rounded-md hover:bg-gray-100 transition-colors duration-150"
+            >
+              <File size={16} className="text-gray-700 mb-1" />
+              <span className="text-xs text-gray-600">{template.name}</span>
+            </button>
           ))}
         </div>
       </div>
