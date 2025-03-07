@@ -16,7 +16,7 @@ export const templates = [
             left: "0px", 
             width: "100%", 
             height: "60px", 
-            backgroundColor: "#1E293B", 
+            backgroundColor: "rgb(164,197,249)", 
             color: "#FFFFFF", 
             display: "flex",
             alignItems: "center",
@@ -297,11 +297,14 @@ export const templates = [
         props: {
           style: {
             position: "absolute",
-            top: "0px",
-            left: "180px%",
+            top: "4px",
+            left: "177px",
             transform: "translateX(-50%)",
             width: "100%",
+            height:"70px",
             textAlign: "center",
+            backgroundColor:"rgb(200,192,192)",
+
           },
         },
       },
@@ -314,8 +317,9 @@ export const templates = [
           style: { 
             fontSize: "28px",
             fontWeight: "bold",
-            top: "20px",
-            left: "50%",
+            top: "12px",
+            left: "192px",
+            width:"200px",
             transform: "translateX(-50%)",
             position: "absolute"
           },
@@ -331,35 +335,20 @@ export const templates = [
           style: { 
             fontSize: "16px", 
             color: "#4B5563", 
-            top: "60px",
-            left: "50%",
+            top: "55px",
+            left: "175px",
             transform: "translateX(-50%)",
             position: "absolute",
             width: "80%",
-            textAlign: "center"
+            textAlign: "center",
+            
           },
           children: "We'd love to hear from you! Fill out the form below or contact us directly.",
         },
       },
   
       // Form Container
-      {
-        id: "comp-4",
-        type: "div" as ComponentType,
-        props: {
-          style: {
-            position: "absolute",
-            top: "120px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "400px",
-            padding: "20px",
-            backgroundColor: "#FFFFFF",
-            borderRadius: "8px",
-            boxShadow: "0px 2px 10px rgba(0,0,0,0.1)",
-          },
-        },
-      },
+      
   
       // Name Input
       {
@@ -371,6 +360,8 @@ export const templates = [
           style: {
             border: "1px solid #CCC",
             padding: "10px",
+            left:"20px",
+            top:"182px",
             width: "100%",
             marginBottom: "10px",
             borderRadius: "5px",
@@ -389,6 +380,8 @@ export const templates = [
             border: "1px solid #CCC",
             padding: "10px",
             width: "100%",
+            left:"20px",
+            top:"253px",
             marginBottom: "10px",
             borderRadius: "5px",
           },
@@ -405,6 +398,8 @@ export const templates = [
             border: "1px solid #CCC",
             padding: "10px",
             width: "100%",
+            left:"20px",
+            top:"319px",
             height: "100px",
             borderRadius: "5px",
             marginBottom: "10px",
@@ -419,13 +414,14 @@ export const templates = [
         props: {
           children: "Send Message",
           style: {
-            top:"480px",
+            top:"440px",
             left:"0px",
             backgroundColor: "#2563EB",
             color: "#FFF",
             padding: "10px",
             borderRadius: "5px",
             width: "100%",
+            
             cursor: "pointer",
             marginTop: "10px"
           },
