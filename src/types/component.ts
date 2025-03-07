@@ -47,6 +47,7 @@ export interface ComponentProps {
 }
 
 export interface Component {
+  templateId: string;
   id: string;
   type: ComponentType;
   props: ComponentProps;
