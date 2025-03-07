@@ -297,8 +297,8 @@ export const templates = [
         props: {
           style: {
             position: "absolute",
-            top: "20px",
-            left: "50%",
+            top: "0px",
+            left: "180px%",
             transform: "translateX(-50%)",
             width: "100%",
             textAlign: "center",
@@ -311,7 +311,14 @@ export const templates = [
         id: "comp-2",
         type: "text" as ComponentType,
         props: {
-          style: { fontSize: "24px", fontWeight: "bold", marginBottom: "10px" },
+          style: { 
+            fontSize: "28px",
+            fontWeight: "bold",
+            top: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            position: "absolute"
+          },
           children: "Contact Us",
         },
       },
@@ -321,7 +328,16 @@ export const templates = [
         id: "comp-3",
         type: "text" as ComponentType,
         props: {
-          style: { fontSize: "16px", color: "#4B5563", marginBottom: "20px" },
+          style: { 
+            fontSize: "16px", 
+            color: "#4B5563", 
+            top: "60px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            position: "absolute",
+            width: "80%",
+            textAlign: "center"
+          },
           children: "We'd love to hear from you! Fill out the form below or contact us directly.",
         },
       },
@@ -332,12 +348,15 @@ export const templates = [
         type: "div" as ComponentType,
         props: {
           style: {
+            position: "absolute",
+            top: "120px",
+            left: "50%",
+            transform: "translateX(-50%)",
             width: "400px",
             padding: "20px",
             backgroundColor: "#FFFFFF",
             borderRadius: "8px",
             boxShadow: "0px 2px 10px rgba(0,0,0,0.1)",
-            margin: "0 auto",
           },
         },
       },
@@ -379,7 +398,7 @@ export const templates = [
       // Message Textarea
       {
         id: "comp-7",
-        type: "textarea" as ComponentType, // Changed to textarea
+        type: "text" as ComponentType,
         props: {
           placeholder: "Your Message",
           style: {
@@ -400,12 +419,15 @@ export const templates = [
         props: {
           children: "Send Message",
           style: {
+            top:"480px",
+            left:"0px",
             backgroundColor: "#2563EB",
             color: "#FFF",
             padding: "10px",
             borderRadius: "5px",
             width: "100%",
             cursor: "pointer",
+            marginTop: "10px"
           },
         },
       },
@@ -415,7 +437,16 @@ export const templates = [
         id: "comp-9",
         type: "text" as ComponentType,
         props: {
-          style: { fontSize: "14px", color: "#4B5563", marginTop: "20px" },
+          style: { 
+            fontSize: "14px", 
+            color: "#4B5563", 
+            top: "300px",
+            left: "130px",
+            transform: "translateX(-50%)",
+            position: "absolute",
+            textAlign: "center",
+            width: "100%"
+          },
           children: "📍 Our Office: 123 Street, City, Country",
         },
       },
@@ -425,7 +456,16 @@ export const templates = [
         id: "comp-10",
         type: "text" as ComponentType,
         props: {
-          style: { fontSize: "14px", color: "#4B5563" },
+          style: { 
+            fontSize: "14px", 
+            color: "#4B5563",
+            top: "300px",
+            left: "300px",
+            transform: "translateX(-50%)",
+            position: "absolute",
+            textAlign: "center",
+            width: "100%"
+          },
           children: "📞 Call Us: +123 456 7890 | ✉️ Email: contact@example.com",
         },
       },
@@ -435,12 +475,22 @@ export const templates = [
         id: "comp-11",
         type: "text" as ComponentType,
         props: {
-          style: { fontSize: "14px", color: "#4B5563", marginTop: "20px" },
+          style: { 
+            fontSize: "14px", 
+            color: "#4B5563",
+            top: "320px",
+            left: "210px",
+            transform: "translateX(-50%)",
+            position: "absolute",
+            textAlign: "center",
+            width: "100%"
+          },
           children: "© 2025 Company Name. All rights reserved.",
         },
       },
     ],
-  },
+  }
+  
   
   
 ];
