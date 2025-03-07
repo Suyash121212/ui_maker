@@ -12,7 +12,7 @@ export const Canvas: React.FC<CanvasProps> = ({ viewMode }) => {
   const [draggingComponent, setDraggingComponent] = useState<string | null>(null);
   const [offset, setOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
-  // Get canvas width based on selected view mode 
+  // Canvas width based on selected view mode
   const getCanvasWidth = () => {
     switch (viewMode) {
       case 'desktop': return 'w-full max-w-6xl';
@@ -22,43 +22,43 @@ export const Canvas: React.FC<CanvasProps> = ({ viewMode }) => {
     }
   };
 
-  // Handle dropping a new component
+  // Handle component drop (drag & drop)
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     const componentType = e.dataTransfer.getData('componentType');
-    const imageUrl = e.dataTransfer.getData('imageUrl'); // Get the image URL if available
-  
+    const imageUrl = e.dataTransfer.getData('imageUrl'); 
+
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-  
+    const x = ((e.clientX - rect.left) / rect.width) * 100; // Convert to percentage
+    const y = ((e.clientY - rect.top) / rect.height) * 100; // Convert to percentage
+
     const newComponent = {
-      id: Math.random().toString(36).substr(2, 9), // Ensure each component has a unique ID
+      id: Math.random().toString(36).substr(2, 9),
       type: componentType as ComponentType,
       props: {
         style: {
           position: 'absolute',
-          left: `${x}px`,
-          top: `${y}px`,
-          width: componentType === 'navbar' ? '100%' : '200px',
+          left: `${x}%`, 
+          top: `${y}%`,
+          width: componentType === 'navbar' ? '100%' : '20%', 
           height: 'auto',
         },
-        className: '',
+        className: 'responsive-component',
         children: componentType === 'text' ? 'Text Component' : '',
-        src: imageUrl || 'https://via.placeholder.com/150', // Use uploaded image or fallback
+        src: imageUrl || 'https://via.placeholder.com/150',
       }
     };
-  
+
     addComponent(newComponent);
     selectComponent(newComponent.id);
   };
 
-  // Allow drag over the canvas
+  // Allow dragging over canvas
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
   };
 
-  // Handle mouse down to start dragging and select component
+  // Handle dragging
   const handleMouseDown = (e: React.MouseEvent, id: string) => {
     selectComponent(id);
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
@@ -68,28 +68,26 @@ export const Canvas: React.FC<CanvasProps> = ({ viewMode }) => {
       y: e.clientY - rect.top,
     });
   };
-  
-  // Move the component while dragging
+
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!draggingComponent) return;
 
     const canvasRect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    const x = e.clientX - canvasRect.left - offset.x;
-    const y = e.clientY - canvasRect.top - offset.y;
+    const x = ((e.clientX - canvasRect.left - offset.x) / canvasRect.width) * 100;
+    const y = ((e.clientY - canvasRect.top - offset.y) / canvasRect.height) * 100;
 
     updateComponent(draggingComponent, {
       props: {
         ...components.find(c => c.id === draggingComponent)?.props,
         style: {
           ...((components.find(c => c.id === draggingComponent)?.props.style) || {}),
-          left: `${x}px`,
-          top: `${y}px`,
+          left: `${x}%`,
+          top: `${y}%`,
         },
       },
     });
   };
 
-  // Stop dragging on mouse up
   const handleMouseUp = () => {
     setDraggingComponent(null);
   };
@@ -117,8 +115,8 @@ export const Canvas: React.FC<CanvasProps> = ({ viewMode }) => {
           onMouseDown={(e) => handleMouseDown(e, component.id)}
           className={`absolute cursor-pointer ${selectedComponentId === component.id ? 'outline outline-2 outline-blue-500' : ''}`}
           style={{
-            left: component.props.style?.left || '0px',
-            top: component.props.style?.top || '0px',
+            left: component.props.style?.left || '0%',
+            top: component.props.style?.top || '0%',
             width: component.props.style?.width || 'auto',
             height: component.props.style?.height || 'auto',
             zIndex: selectedComponentId === component.id ? 10 : 1,

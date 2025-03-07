@@ -18,6 +18,7 @@ const activeLinkStyle = {
 };
 
 export const templates = [
+  
   {
     id: "template-1",
     name: "Basic Layout",
@@ -29,21 +30,21 @@ export const templates = [
         props: {
           style: { 
             position: "absolute", 
-            top: "0px", 
-            left: "0px", 
+            top: "0%", 
+            left: "0%", 
             width: "100%", 
-            height: "60px", 
+            height: "10vh", 
             backgroundColor: "rgb(164,197,249)", 
             color: "#FFFFFF", 
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: "0 20px"
+            padding: "0 2%"
           },
           children: [
-            { type: "text", props: { children: "MyBrand", style: { fontSize: "20px", fontWeight: "bold" } } },
-            { type: "menu", props: { items: ["Home", "About", "Services", "Contact"], style: { display: "flex", gap: "15px" } } },
-            { type: "button", props: { children: "Sign Up", style: { backgroundColor: "#4F46E5", padding: "8px 16px", borderRadius: "5px", cursor: "pointer" } } }
+            { type: "text", props: { children: "MyBrand", style: { fontSize: "1.5rem", fontWeight: "bold" } } },
+            { type: "menu", props: { items: ["Home", "About", "Services", "Contact"], style: { display: "flex", gap: "1.5vw" } } },
+            { type: "button", props: { children: "Sign Up", style: { backgroundColor: "#4F46E5", padding: "0.5rem 1rem", borderRadius: "5px", cursor: "pointer" } } }
           ],
         },
       },
@@ -54,9 +55,10 @@ export const templates = [
         props: {
           style: { 
             position: "absolute", 
-            top: "40px", 
-            left:"20px", 
-            fontSize: "24px", 
+            width:"80%",
+            top: "15%", 
+            left:"5%", 
+            fontSize: "2vw", 
             fontWeight: "bold", 
             color: "#FF6B6B" 
           },
@@ -68,7 +70,7 @@ export const templates = [
         id: "comp-3",
         type: "image" as ComponentType,
         props: {
-          style: { position: "absolute", top: "150px", left: "10%", width: "150px", height: "100px", borderRadius: "5px" },
+          style: { position: "absolute", top: "30%", left: "10%", width: "12vw", height: "8vw", borderRadius: "5px" },
           src: "https://images.pexels.com/photos/2325447/pexels-photo-2325447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         },
       },
@@ -76,7 +78,7 @@ export const templates = [
         id: "comp-4",
         type: "image" as ComponentType,
         props: {
-          style: { position: "absolute", top: "150px", left: "35%", width: "150px", height: "100px", borderRadius: "5px" },
+          style: { position: "absolute", top: "30%", left: "35%", width: "12vw", height: "8vw", borderRadius: "5px" },
           src: "https://images.pexels.com/photos/248159/pexels-photo-248159.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         },
       },
@@ -84,7 +86,7 @@ export const templates = [
         id: "comp-5",
         type: "image" as ComponentType,
         props: {
-          style: { position: "absolute", top: "150px", left: "60%", width: "150px", height: "100px", borderRadius: "5px" },
+          style: { position: "absolute", top: "30%", left: "60%", width: "12vw", height: "8vw", borderRadius: "5px" },
           src: "https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
         },
       },
@@ -93,7 +95,7 @@ export const templates = [
         id: "comp-6",
         type: "text" as ComponentType,
         props: {
-          style: { position: "absolute", top: "220px", left: "20%", fontSize: "16px", fontWeight: "bold" },
+          style: { position: "absolute", top: "70%", left: "20%", fontSize: "1vw", fontWeight: "bold" },
           children: "UI Design",
         },
       },
@@ -101,7 +103,7 @@ export const templates = [
         id: "comp-7",
         type: "text" as ComponentType,
         props: {
-          style: { position: "absolute", top: "220px", left: "45%", fontSize: "16px", fontWeight: "bold" },
+          style: { position: "absolute", top: "70%", left: "45%", fontSize: "1vw", fontWeight: "bold" },
           children: "Component Library",
         },
       },
@@ -109,7 +111,7 @@ export const templates = [
         id: "comp-8",
         type: "text" as ComponentType,
         props: {
-          style: { position: "absolute", top: "220px", left: "70%", fontSize: "16px", fontWeight: "bold" },
+          style: { position: "absolute", top: "70%", left: "70%", fontSize: "1vw", fontWeight: "bold" },
           children: "Custom Elements",
         },
       },
@@ -120,15 +122,14 @@ export const templates = [
         props: {
           style: { 
             position: "absolute", 
-            top:"280px",
-            bottom: "100px", 
-            left: "0px", 
+            top:"80%",
+            left: "0%", 
             width: "100%", 
-            height: "50px", 
+            height: "8vh", 
             backgroundColor: "#1E293B", 
             color: "#FFFFFF", 
             textAlign: "center", 
-            padding: "15px"
+            padding: "1.5vh"
           },
           children: "© 2025 MyBrand. All rights reserved. | Privacy Policy | Terms of Service",
         },
@@ -146,8 +147,8 @@ export const templates = [
         props: {
           style: { 
             position: "absolute", 
-            top: "0px", 
-            left: "0px", 
+            top: "0%", 
+            left: "0%", 
             width: "100%", 
             height: "100vh",
             background: "linear-gradient(to right,rgb(177, 179, 186),rgb(240, 240, 248))", 
@@ -157,39 +158,17 @@ export const templates = [
           },
         },
       },
-      // Login Form Container
-    //   {
-    //     id: "comp-2",
-    //     type: "div" as ComponentType,
-    //     props: {
-    //       style: { 
-    //         position: "absolute",
-    //         top: "150px",
-    //         left: "50%",
-    //         transform: "translateX(-50%)",
-    //         width: "350px",
-    //         padding: "30px",
-    //         backgroundColor: "#FFFFFF",
-    //         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
-    //         borderRadius: "10px",
-    //         textAlign: "center",
-    //         display: "flex",
-    //         flexDirection: "column",
-    //         gap: "15px"
-    //       },
-    //     },
-    //   },
-      // Heading
+      
       {
         id: "comp-3",
         type: "text" as ComponentType,
         props: {
           style: { 
             position: "absolute",
-            top: "6.4285736083984375px",
-            left: "185.86831665039062px",
+            top: "3%",
+            left: "50%",
             transform: "translateX(-50%)",
-            fontSize: "22px", 
+            fontSize: "2vw", 
             fontWeight: "bold", 
             color: "#333" 
           },
@@ -203,19 +182,19 @@ export const templates = [
         props: {
           style: { 
             position: "absolute",
-            top: "67.13168334960938px",
-            left: "206.58480834960938px",
+            top: "28%",
+            left: "28%",
             transform: "translateX(-50%)",
             width: "80%", 
-            padding: "12px", 
-            borderRadius: "8px", 
+            padding: "1vw", 
+            borderRadius: "1vw", 
             border: "1px solid #ccc", 
             boxShadow: "inset 0px 2px 4px rgba(0, 0, 0, 0.1)",
             transition: "0.3s",
           },
           type: "email",
           placeholder: "Enter your email",
-          onFocus: { boxShadow: "0px 0px 8px rgba(79, 70, 229, 0.5)" },
+          onFocus: { boxShadow: "0px 0px 1vw rgba(79, 70, 229, 0.5)" },
         },
       },
       // Password Input Field
@@ -225,19 +204,19 @@ export const templates = [
         props: {
           style: { 
             position: "absolute",
-            top: "99.71427917480469px",
-            left: "203px",
+            top: "42%",
+            left: "28%",
             transform: "translateX(-50%)",
             width: "80%", 
-            padding: "12px", 
-            borderRadius: "8px", 
+            padding: "1vw", 
+            borderRadius: "1vw", 
             border: "1px solid #ccc", 
             boxShadow: "inset 0px 2px 4px rgba(0, 0, 0, 0.1)",
             transition: "0.3s",
           },
           type: "password",
           placeholder: "Enter your password",
-          onFocus: { boxShadow: "0px 0px 8px rgba(79, 70, 229, 0.5)" },
+          onFocus: { boxShadow: "0px 0px 1vw rgba(79, 70, 229, 0.5)" },
         },
       },
       // Submit Button
@@ -247,15 +226,15 @@ export const templates = [
         props: {
           style: { 
             position: "absolute",
-            top: "140px",
-            left: "200px",
+            top: "61%",
+            left: "30%",
             transform: "translateX(-50%)",
-            width: "85%", 
-            padding: "12px", 
+            width: "65%", 
+            padding: "1vw", 
             background: "linear-gradient(to right, #4F46E5, #3B82F6)", 
             color: "white", 
             border: "none", 
-            borderRadius: "8px",
+            borderRadius: "1vw",
             fontWeight: "bold",
             cursor: "pointer",
             transition: "0.3s",
@@ -271,10 +250,10 @@ export const templates = [
         props: {
           style: { 
             position: "absolute",
-            top: "170px",
-            left: "170px",
+            top: "75%",
+            left: "38%",
             transform: "translateX(-50%)",
-            fontSize: "14px", 
+            fontSize: "1vw", 
             color: "#4F46E5", 
             cursor: "pointer" 
           },
@@ -288,10 +267,10 @@ export const templates = [
         props: {
           style: { 
             position: "absolute",
-            top: "167px",
-            left: "235px",
+            top: "73%",
+            left: "62%",
             transform: "translateX(-50%)",
-            fontSize: "14px", 
+            fontSize: "1vw", 
             color: "#4F46E5", 
             cursor: "pointer" 
           },
@@ -299,210 +278,206 @@ export const templates = [
         },
       },
     ],
-  },
+  }
+,
   
   
-  
-  {
-    id: "template-3",
-    name: "Contact Us",
-    components: [
-      // Main container
-      {
-        id: "comp-1",
-        type: "div" as ComponentType,
-        props: {
-          style: {
-            position: "absolute",
-            top: "4px",
-            left: "177px",
-            transform: "translateX(-50%)",
-            width: "100%",
-            height:"70px",
-            textAlign: "center",
-            backgroundColor:"rgb(200,192,192)",
+{
+  id: "template-3",
+  name: "Contact Us",
+  components: [
+    // Main container
+    {
+      id: "comp-1",
+      type: "div" as ComponentType,
+      props: {
+        style: {
+          position: "absolute",
+          top: "2%",
+          left: "28%",
+          transform: "translateX(-50%)",
+          width: "80%",
+          height:"40%",
+          textAlign: "center",
+          backgroundColor:"rgb(200,192,192)",
+        },
+      },
+    },
 
-          },
+    // Title
+    {
+      id: "comp-2",
+      type: "text" as ComponentType,
+      props: {
+        style: { 
+          fontSize: "2vw",
+          fontWeight: "bold",
+          top: "6%",
+          left: "40%",
+          width:"80%",
+          transform: "translateX(-50%)",
+          position: "absolute"
+        },
+        children: "Contact Us",
+      },
+    },
+
+    // Subtitle
+    {
+      id: "comp-3",
+      type: "text" as ComponentType,
+      props: {
+        style: { 
+          fontSize: "1vw", 
+          color: "#4B5563", 
+          top: "23%",
+          left: "30%",
+          width:"80%",
+          transform: "translateX(-50%)",
+          position: "absolute",
+         
+          textAlign: "center",
+        },
+        children: "We'd love to hear from you! Fill out the form below or contact us directly.",
+      },
+    },
+
+    // Name Input
+    {
+      id: "comp-5",
+      type: "input" as ComponentType,
+      props: {
+        type: "text",
+        placeholder: "Your Name",
+        style: {
+          border: "1px solid #CCC",
+          padding: "1vw",
+          top:"27%",
+          left:"17%",
+          width: "80%",
+          marginBottom: "1vw",
+          borderRadius: "0.5vw",
         },
       },
-  
-      // Title
-      {
-        id: "comp-2",
-        type: "text" as ComponentType,
-        props: {
-          style: { 
-            fontSize: "28px",
-            fontWeight: "bold",
-            top: "12px",
-            left: "192px",
-            width:"200px",
-            transform: "translateX(-50%)",
-            position: "absolute"
-          },
-          children: "Contact Us",
+    },
+
+    // Email Input
+    {
+      id: "comp-6",
+      type: "input" as ComponentType,
+      props: {
+        type: "email",
+        placeholder: "Your Email",
+        style: {
+          border: "1px solid #CCC",
+          padding: "1vw",
+          width: "80%",
+          left:"17%",
+          top:"42%",
+          marginBottom: "1vw",
+          borderRadius: "0.5vw",
         },
       },
-  
-      // Subtitle
-      {
-        id: "comp-3",
-        type: "text" as ComponentType,
-        props: {
-          style: { 
-            fontSize: "16px", 
-            color: "#4B5563", 
-            top: "55px",
-            left: "175px",
-            transform: "translateX(-50%)",
-            position: "absolute",
-            width: "80%",
-            textAlign: "center",
-            
-          },
-          children: "We'd love to hear from you! Fill out the form below or contact us directly.",
+    },
+
+    // Message Textarea
+    {
+      id: "comp-7",
+      type: "text" as ComponentType,
+      props: {
+        placeholder: "Your Message",
+        style: {
+          border: "1px solid #CCC",
+          padding: "1vw",
+          width: "80%",
+          left:"17%",
+          top:"56%",
+          height: "10vh",
+          borderRadius: "0.5vw",
+          marginBottom: "1vw",
         },
       },
-  
-      // Form Container
-      
-  
-      // Name Input
-      {
-        id: "comp-5",
-        type: "input" as ComponentType,
-        props: {
-          type: "text",
-          placeholder: "Your Name",
-          style: {
-            border: "1px solid #CCC",
-            padding: "10px",
-            left:"20px",
-            top:"182px",
-            width: "100%",
-            marginBottom: "10px",
-            borderRadius: "5px",
-          },
+    },
+
+    // Send Button
+    {
+      id: "comp-8",
+      type: "button" as ComponentType,
+      props: {
+        children: "Send Message",
+        style: {
+          top:"73%",
+          left:"17%",
+          backgroundColor: "#2563EB",
+          color: "#FFF",
+          padding: "1vw",
+          borderRadius: "0.5vw",
+          width: "80%",
+          cursor: "pointer",
+          marginTop: "1vw"
         },
       },
-  
-      // Email Input
-      {
-        id: "comp-6",
-        type: "input" as ComponentType,
-        props: {
-          type: "email",
-          placeholder: "Your Email",
-          style: {
-            border: "1px solid #CCC",
-            padding: "10px",
-            width: "100%",
-            left:"20px",
-            top:"253px",
-            marginBottom: "10px",
-            borderRadius: "5px",
-          },
+    },
+
+    // Office Location
+    {
+      id: "comp-9",
+      type: "text" as ComponentType,
+      props: {
+        style: { 
+          fontSize: "1vw", 
+          color: "#4B5563", 
+          top: "88%",
+          left: "28%",
+          transform: "translateX(-50%)",
+          position: "absolute",
+          textAlign: "center",
+          width: "80%"
         },
+        children: "📍 Our Office: 123 Street, City, Country",
       },
-  
-      // Message Textarea
-      {
-        id: "comp-7",
-        type: "text" as ComponentType,
-        props: {
-          placeholder: "Your Message",
-          style: {
-            border: "1px solid #CCC",
-            padding: "10px",
-            width: "100%",
-            left:"20px",
-            top:"319px",
-            height: "100px",
-            borderRadius: "5px",
-            marginBottom: "10px",
-          },
+    },
+
+    // Contact Details
+    {
+      id: "comp-10",
+      type: "text" as ComponentType,
+      props: {
+        style: { 
+          fontSize: "1vw", 
+          color: "#4B5563",
+          top: "97%",
+          left: "25%",
+          transform: "translateX(-50%)",
+          position: "absolute",
+          textAlign: "center",
+          width: "80%"
         },
+        children: "📞 Call Us: +123 456 7890 | ✉️ Email: contact@example.com",
       },
-  
-      // Send Button
-      {
-        id: "comp-8",
-        type: "button" as ComponentType,
-        props: {
-          children: "Send Message",
-          style: {
-            top:"440px",
-            left:"0px",
-            backgroundColor: "#2563EB",
-            color: "#FFF",
-            padding: "10px",
-            borderRadius: "5px",
-            width: "100%",
-            
-            cursor: "pointer",
-            marginTop: "10px"
-          },
+    },
+
+    // Footer
+    {
+      id: "comp-11",
+      type: "text" as ComponentType,
+      props: {
+        style: { 
+          fontSize: "1vw", 
+          color: "#4B5563",
+          top: "110%",
+          left: "25%",
+          transform: "translateX(-50%)",
+          position: "absolute",
+          textAlign: "center",
+          width: "80%"
         },
+        children: "© 2025 Company Name. All rights reserved.",
       },
-  
-      // Office Location
-      {
-        id: "comp-9",
-        type: "text" as ComponentType,
-        props: {
-          style: { 
-            fontSize: "14px", 
-            color: "#4B5563", 
-            top: "300px",
-            left: "130px",
-            transform: "translateX(-50%)",
-            position: "absolute",
-            textAlign: "center",
-            width: "100%"
-          },
-          children: "📍 Our Office: 123 Street, City, Country",
-        },
-      },
-  
-      // Contact Details
-      {
-        id: "comp-10",
-        type: "text" as ComponentType,
-        props: {
-          style: { 
-            fontSize: "14px", 
-            color: "#4B5563",
-            top: "300px",
-            left: "300px",
-            transform: "translateX(-50%)",
-            position: "absolute",
-            textAlign: "center",
-            width: "100%"
-          },
-          children: "📞 Call Us: +123 456 7890 | ✉️ Email: contact@example.com",
-        },
-      },
-  
-      // Footer
-      {
-        id: "comp-11",
-        type: "text" as ComponentType,
-        props: {
-          style: { 
-            fontSize: "14px", 
-            color: "#4B5563",
-            top: "320px",
-            left: "210px",
-            transform: "translateX(-50%)",
-            position: "absolute",
-            textAlign: "center",
-            width: "100%"
-          },
-          children: "© 2025 Company Name. All rights reserved.",
-        },
-      },
-    ],
-  },
+    },
+  ],
+},
+
   
   {
     id: "template-4",
@@ -515,11 +490,11 @@ export const templates = [
         props: {
           style: {
             position: "absolute",
-            top: "0px",
-            left: "180px",
+            top: "0%",
+            left: "25%",
             transform: "translateX(-50%)",
             width: "100%",
-            height: "70px",
+            height: "40%",
             backgroundColor: "#1E1E1E", // Dark background
             boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Soft shadow
             display: "flex",
@@ -539,8 +514,8 @@ export const templates = [
           style: {
             display: "flex",
             gap: "20px",
-            top:"16px",
-            left:"523px",
+            top:"3.5%",
+            left:"72%",
           },
         },
       },
@@ -549,22 +524,22 @@ export const templates = [
       {
         id: "link-1",
         type: "text" as ComponentType,
-        props: { children: "Services", style:{ ...linkStyle ,left:"30px",top:"16px" }},
+        props: { children: "Services", style:{ ...linkStyle ,left:"10%",top:"4.5%" }},
       },
       {
         id: "link-2",
         type: "text" as ComponentType,
-        props: { children: "Projects", style:{ ...linkStyle,left:"118px",top:"16px" } },
+        props: { children: "Projects", style:{ ...linkStyle,left:"20%",top:"4.5%" } },
       },
       {
         id: "link-3",
         type: "text" as ComponentType,
-        props: { children: "About", style: {...linkStyle ,left:"209px",top:"16px" }},
+        props: { children: "About", style: {...linkStyle ,left:"30%",top:"4.5%" }},
       },
       {
         id: "link-4",
         type: "text" as ComponentType,
-        props: { children: "Contact", style:{... activeLinkStyle,left:"282px",top:"16px" }},
+        props: { children: "Contact", style:{... activeLinkStyle,left:"40%",top:"3.5%" }},
       },
   
       // Logo
@@ -574,8 +549,8 @@ export const templates = [
         props: {
           children: "LOGOBAKERY",
           style: {
-            top:"21px",
-            left:"567px",
+            top:"3.5%",
+            left:"79%",
 
             fontSize: "18px",
             fontWeight: "bold",
