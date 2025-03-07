@@ -1,4 +1,21 @@
+import { Component } from "lucide-react";
 import { ComponentType } from "../types/component";
+
+const linkStyle = {
+  color: "#CCCCCC",
+  fontSize: "16px",
+  cursor: "pointer",
+  transition: "color 0.3s",
+  ':hover': { color: "#FFFFFF" },
+};
+
+const activeLinkStyle = {
+  ...linkStyle,
+  backgroundColor: "#0EA5E9",
+  padding: "6px 14px",
+  borderRadius: "20px",
+  color: "#FFFFFF",
+};
 
 export const templates = [
   {
@@ -485,7 +502,92 @@ export const templates = [
         },
       },
     ],
+  },
+  
+  {
+    id: "template-4",
+    name: "Navigation Bar",
+    components: [
+      // Navbar Container
+      {
+        id: "comp-1",
+        type: "div" as ComponentType,
+        props: {
+          style: {
+            position: "absolute",
+            top: "0px",
+            left: "180px",
+            transform: "translateX(-50%)",
+            width: "100%",
+            height: "70px",
+            backgroundColor: "#1E1E1E", // Dark background
+            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Soft shadow
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "0 40px",
+            borderBottom: "3px solid #2563EB" // Light blue border-bottom
+          },
+        },
+      },
+  
+      // Navigation Links Container
+      {
+        id: "comp-2",
+        type: "div" as ComponentType,
+        props: {
+          style: {
+            display: "flex",
+            gap: "20px",
+            top:"16px",
+            left:"523px",
+          },
+        },
+      },
+  
+      // Navigation Links
+      {
+        id: "link-1",
+        type: "text" as ComponentType,
+        props: { children: "Services", style:{ ...linkStyle ,left:"30px",top:"16px" }},
+      },
+      {
+        id: "link-2",
+        type: "text" as ComponentType,
+        props: { children: "Projects", style:{ ...linkStyle,left:"118px",top:"16px" } },
+      },
+      {
+        id: "link-3",
+        type: "text" as ComponentType,
+        props: { children: "About", style: {...linkStyle ,left:"209px",top:"16px" }},
+      },
+      {
+        id: "link-4",
+        type: "text" as ComponentType,
+        props: { children: "Contact", style:{... activeLinkStyle,left:"282px",top:"16px" }},
+      },
+  
+      // Logo
+      {
+        id: "comp-3",
+        type: "text" as ComponentType,
+        props: {
+          children: "LOGOBAKERY",
+          style: {
+            top:"21px",
+            left:"567px",
+
+            fontSize: "18px",
+            fontWeight: "bold",
+            color: "#FFFFFF",
+            letterSpacing: "1px",
+          },
+        },
+      },
+    ],
   }
+  
+  
   
   
   
